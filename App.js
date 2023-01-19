@@ -1,4 +1,5 @@
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import useWeather from './src/hook/useWeather';
@@ -38,6 +39,7 @@ export default function App() {
       >
         { loading ? <LoadingPage /> : error ? <ErrorPage message={error} /> : <Homepage weatherResponse={weatherResponse} upcomingWeather={upcomingWeather} getWeather={getWeather}/> }
       </LinearGradient>
+      <StatusBar style='dark' translucent="true" />
     </View>
   );
 }

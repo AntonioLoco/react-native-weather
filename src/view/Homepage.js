@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Dimensions, Image, ScrollView, TouchableOpacity, FlatList, Platform} from 'react-native'
 import React from 'react'
 import { WEATHER_IMAGES } from '../imagesPath';
+import { WEATHER_MESSAGES } from '../Messages';
 
 
 const Homepage = ({weatherResponse , upcomingWeather, getWeather}) => {
@@ -72,6 +73,10 @@ const Homepage = ({weatherResponse , upcomingWeather, getWeather}) => {
                         <Image source={require("../icons/barometro.png")} style={styles.iconBox}/>
                         <Text style={styles.textBox}>{weatherResponse.main.pressure}<Text style={{fontSize: 20, fontWeight: "700"}}>hPa</Text></Text>
                     </View>
+                        <View style={styles.Doublebox}>
+                            <Text style={[styles.boxName, {position: "absolute", top: 20, left: 20}]}>AFORISMA</Text>
+                            <Text style={{fontSize: 20, fontWeight: "500", textAlign: "center"}}>{WEATHER_MESSAGES[weatherResponse.weather[0].icon]}</Text>
+                        </View>
                 </View>
             </View>
         </ScrollView>
@@ -155,6 +160,16 @@ const styles = StyleSheet.create({
     },
     box: {
         width: ((Dimensions.get("window").width) / 2) - 20 ,
+        height: ((Dimensions.get("window").width) / 2) - 20,
+        backgroundColor: "#ffffff1a",
+        borderRadius: 30,
+        alignItems: "center",
+        justifyContent: "center",
+        marginVertical: 10,
+        padding: 20
+    },
+    Doublebox: {
+        width: Dimensions.get("window").width - 20,
         height: ((Dimensions.get("window").width) / 2) - 20,
         backgroundColor: "#ffffff1a",
         borderRadius: 30,
