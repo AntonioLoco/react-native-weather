@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -9,7 +9,7 @@ import Homepage from './src/view/Homepage';
 
 const urlApi = 'https://api.openweathermap.org/data/2.5/weather?units=metric&lang=it';
 const urlApiUpcoming = 'https://api.openweathermap.org/data/2.5/forecast?&cnt=10&units=metric&lang=it';
-const apiKey = 'a9882e8cc3f3edb6545531d67db0d03f';
+const apiKey = 'YOUR_API_KEY';
 
 export default function App() {
   const {weatherResponse, upcomingWeather, theme, loading, error, getWeather} = useWeather(urlApi ,apiKey, urlApiUpcoming);
