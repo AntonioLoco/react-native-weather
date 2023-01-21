@@ -11,7 +11,7 @@ export class LoadingPage extends Component {
           source={require('../img/loading.gif')}
         />
         <View style={styles.copyrightWrapper}>
-          <Text style={styles.copyright}>Powerd by Antonio Locorotondo</Text>
+          <Text style={styles.copyright}><Text style={{fontWeight: "400", fontSize: 13}}>Powerd by</Text> Antonio Locorotondo</Text>
         </View>
       </View>
     )

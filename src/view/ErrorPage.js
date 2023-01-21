@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, Button } from 'react-native'
 import React from 'react'
 
-const ErrorPage = ({message}) => {
+const ErrorPage = ({message, getWeather}) => {
   return (
     <View style={styles.container}>
       <Image source={require("../img/geolocation_disabled.png")} style={styles.icon}/>
       <Text style={styles.text}>{message}</Text>
+      <Button title="Ricarica" onPress={getWeather}/>
     </View>
   )
 }
@@ -27,6 +28,10 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: "bold",
         color: "#f5f5f5",
-        marginTop: 100
+        marginTop: 100,
+        paddingHorizontal: 20,
+        textAlign: "center",
+        color: "#252525",
+        marginBottom: 30
     }
 })

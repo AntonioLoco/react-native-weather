@@ -37,9 +37,9 @@ export default function App() {
         }}
         style={styles.background}
       >
-        { loading ? <LoadingPage /> : error ? <ErrorPage message={error} /> : <Homepage weatherResponse={weatherResponse} upcomingWeather={upcomingWeather} getWeather={getWeather}/> }
+        { loading ? <LoadingPage /> : error ? <ErrorPage message={error} getWeather={getWeather}/> : <Homepage weatherResponse={weatherResponse} upcomingWeather={upcomingWeather} getWeather={getWeather}/> }
       </LinearGradient>
-      <StatusBar style='dark' translucent="true" />
+      <StatusBar style='dark'/>
     </View>
   );
 }

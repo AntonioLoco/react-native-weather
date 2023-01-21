@@ -6,7 +6,6 @@ import { WEATHER_MESSAGES } from '../Messages';
 
 const Homepage = ({weatherResponse , upcomingWeather, getWeather}) => {
     const moment = require('moment');
-    console.log(weatherResponse);
     const sunriseHour = moment.unix(weatherResponse.sys.sunrise).format("HH:mm");
     const sunsetHour = moment.unix(weatherResponse.sys.sunset).format("HH:mm");
 
@@ -33,7 +32,7 @@ const Homepage = ({weatherResponse , upcomingWeather, getWeather}) => {
                     style={styles.upcomingBox}
                     horizontal={true}
                     data={upcomingWeather.list}
-                    renderItem={({ item, index}) => 
+                    renderItem={({ item, index }) => 
                         <View style={styles.upcomingHour}>
                             <Text style={{fontSize: 15, fontWeight: "600", marginBottom: Platform.OS == "android" ? 10 : 0}}>{ index == 0 ? "Adesso" : moment.unix(item.dt - 1).format("HH")}</Text>
                             <Image source={WEATHER_IMAGES[item.weather[0].icon].uri} style={{width: 40, height: 40, resizeMode: "contain"}}/>
@@ -73,13 +72,13 @@ const Homepage = ({weatherResponse , upcomingWeather, getWeather}) => {
                         <Image source={require("../icons/barometro.png")} style={styles.iconBox}/>
                         <Text style={styles.textBox}>{weatherResponse.main.pressure}<Text style={{fontSize: 20, fontWeight: "700"}}>hPa</Text></Text>
                     </View>
-                        <View style={styles.Doublebox}>
-                            <Text style={[styles.boxName, {position: "absolute", top: 20, left: 20}]}>AFORISMA</Text>
-                            <Text style={{fontSize: 20, fontWeight: "500", textAlign: "center"}}>{WEATHER_MESSAGES[weatherResponse.weather[0].icon]}</Text>
-                        </View>
+                    <View style={styles.Doublebox}>
+                        <Text style={[styles.boxName, {position: "absolute", top: 20, left: 20}]}>AFORISMA</Text>
+                        <Text style={{fontSize: 20, fontWeight: "500", textAlign: "center"}}>{WEATHER_MESSAGES[weatherResponse.weather[0].icon]}</Text>
+                    </View>
                 </View>
             </View>
-        </ScrollView>
+        </ScrollView> 
     )
 }
 
@@ -144,7 +143,8 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderRadius: 30,
         paddingHorizontal: 5,
-        paddingVertical: 10
+        paddingVertical: 22,
+        overflow: "hidden"
     },
     upcomingHour: {
         width: 60, 

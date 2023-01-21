@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState} from 'react'
 import * as Location from 'expo-location';
+import NetInfo from "@react-native-community/netinfo";
 
 
 const useWeather = (url, key, urlUpcoming) => {
@@ -28,9 +29,24 @@ const useWeather = (url, key, urlUpcoming) => {
             return;
         }
 
+        const localization = await Location.getProviderStatusAsync();
+        if(!localization.locationServicesEnabled){
+            setError("Accendi la localizzazione");
+            setloading(false);
+            return;
+        }
+
         //Prendo la posizione corrente
         let {coords} = await Location.getCurrentPositionAsync({});
         setLocation(coords);
+
+        NetInfo.fetch().then(state => {
+            if(!state.isConnected){
+                setError("Accendi il wifi o la connessione dati");
+                setloading(false);
+                return;
+            }
+        });
 
 
         //Chiamo api meteo
