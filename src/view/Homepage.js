@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
         height: 25
     },
     icon: {
-        width: 300,
-        height: 300,
+        width: (Dimensions.get("window").width),
+        height: (Dimensions.get("window").width),
         resizeMode: "contain"
     },
     descriptionBox: {
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     },
     upcomingBox: {
         width: Dimensions.get("window").width - 20,
-        height: (Dimensions.get("window").width - 20) / 3,
+        height: (Dimensions.get("window").width - 20) / 2 - 50,
         backgroundColor: "#ffffff1a",
         marginBottom: 10,
         borderRadius: 30,
@@ -180,19 +180,21 @@ const styles = StyleSheet.create({
     },
     boxName: {
         fontSize: 13,
-        alignSelf: "flex-start",
         color: "#26262680",
-        marginBottom: 10
+        position: "absolute",
+        top: 15,
+        left: 20
     },
     iconBox: {
-        width: 50,
-        height: 50,
-        resizeMode: "contain"
+        width: "35%",
+        height: "35%",
+        resizeMode: "contain",
+        marginTop: 10
     },
     textBox: {
-        fontSize: 35,
+        fontSize:  (((Dimensions.get("window").width) / 2) - 20) / 7,
         fontWeight: "500",
-        marginTop: 20,
+        marginTop: 15,
         textAlign: "center"
     }
 })

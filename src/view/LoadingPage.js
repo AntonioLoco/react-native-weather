@@ -9,9 +9,10 @@ export class LoadingPage extends Component {
       <View style={[styles.container, {height: screenHeight}]}>
          <Image
           source={require('../img/loading.gif')}
+          style={styles.iconLoader}
         />
         <View style={styles.copyrightWrapper}>
-          <Text style={styles.copyright}><Text style={{fontWeight: "400", fontSize: 13}}>Powerd by</Text> Antonio Locorotondo</Text>
+          <Text style={styles.copyright}><Text style={{fontWeight: "400", fontSize: 10}}>Powerd by</Text> Antonio Locorotondo</Text>
         </View>
       </View>
     )
@@ -27,6 +28,10 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "relative"
   },
+  iconLoader: {
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").width,
+  },
   copyrightWrapper: {
     textAlign: "center",
     position: "absolute",
@@ -35,6 +40,6 @@ const styles = StyleSheet.create({
   copyright: {
     color: "#252525",
     fontWeight: "600",
-    fontSize: 15,
+    fontSize: 10,
   }
 })
